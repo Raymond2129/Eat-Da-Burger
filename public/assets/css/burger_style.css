@@ -1,13 +1,15 @@
 .jumbotron {
-    background-image: url("/assets/img/background.jpg");
+    /* background-image: url("./image/background.jpg"); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     margin-top: 10px;
+    background-color: rgba(0, 208, 255, 0.81);
 }
 
 .jumbotron > h1 {
     font-family: 'Fjalla One', sans-serif;
+    color: white;
 }
 
 #newburger {
