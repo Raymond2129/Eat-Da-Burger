@@ -1,58 +1,76 @@
-{{!-- Setup the index.handlebars to have the template that Handlebars can render onto. --}}
-<div class="container">
+<div class="container bg">
+	
+	<div class="row">
+	    <div class="center col-sm-12">
+			<img src="assets/img/burger.png" alt="Eat-Da-Burger App">
+	        <h1>Eat-Da-Burger App</h1>
+	        <p></p>
+	    </div>
+  	</div>
+	<!-- end .row -->
 
-    <div class="jumbotron">
-        <h1 id="color-override">Eat the Burger</h1>
-        <p id="color-override">Make burgers, eat burgers.</p>
-        <br>
-        <h2 id="color-override">Make a Burger</h2>
-        <panel>
-            <form class="create-form">
-                <div class="form-group">
-                    <label for="newburger" id="color-override">New Burger:</label>
-                    <input type="text" id="newburger" name="burger">
-                    {{!-- Create a button in index.handlebars that will submit the user input into the database. --}}
-                    <button type="submit" class="btn btn-success" id="addburger"><span class="fa fa-thumbs-up"></span></button>
-                </div>
-            </form>
-        </panel>
-    </div><!-- /jumbotron -->
+	<div class="row">
+	    <div class="col-sm-6">
 
-    <div class="row">
-        <!-- Undevoured Burgers -->
-        <div class="col-sm-6">
-            <div class="panel panel-default">
-                <div class="panel-heading" id="lefthead"><strong>New Burgers</strong></div>
-                <div class="panel-body">
-                    <ul>
-                        {{#each burgers}}
-                            {{#unless devoured}}
-                                <span><strong> {{this.id}} - {{this.burger_name}} </strong></span>
-                                <button type="button" class="eatburger btn btn-warning" id ="eatbutton" data-id="{{this.id}}" data-newDevoured="{{devour}}"><span class="fa fa-cutlery"></span></button>
-                                <hr>
-                            {{/unless}}
-                        {{/each}}
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- Devoured Burgers -->
-        <div class="col-sm-6">
-            <div class="panel panel-default">
-                <div class="panel-heading" id="righthead"><strong>Devoured Burgers</strong></div>
-                <div class="panel-body">
-                    <ul>
-                        {{#each burgers}}
-                            {{#if devoured}}
-                                <span><strong> {{this.id}} - {{this.burger_name}} </strong></span>
-                                <button type="button" class="trashburger btn btn-danger" id ="trashbutton" data-id="{{this.id}}" data-newDevoured="{{devour}}"><span class="fa fa-trash"></span></button>
-                                <hr>
-                            {{/if}}
-                        {{/each}}
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div><!-- /row -->
+			<br>
+			<h2>Burgers Available To Eat!</h2>
 
-</div><!-- /container -->
+			<ul>
+			  {{#each burgers}}
+			    {{#unless this.devoured}}
+			      <li>
+			      	{{this.id}}
+			        {{this.burger_name}}
+
+			        <form action="/{{this.id}}?_method=PUT" method="POST">
+			          <input type="hidden" name="devoured" value="true">
+			          <button class="btn-primary" type="submit">Devour It!</button>
+			        </form>
+
+			      </li>
+			    {{/unless}}
+			  {{/each}}
+			</ul>
+
+	    </div>
+
+	    <div class="col-sm-6">
+
+			<h2>Burgers That Have Been Eaten!</h2>
+			
+			  {{#each burgers}}
+			    {{#if this.devoured}}
+			      <li>
+			      	{{this.id}}
+			        {{this.burger_name}}
+
+			      </li>
+			    {{/if}}
+			  {{/each}}
+			
+	    </div>
+
+  	</div>
+	<!-- end .row -->
+
+	<div class="row">
+	    <div class="center col-sm-12">
+
+			<h2>Add A Burger!</h2>
+
+			<form class="create-update-form" action="/" method="POST">
+
+			  <div class="form-group">
+			    <p>Enter a burger you want to order and click the Submit Order button.</p>
+			    <input type="text" id="ca" name="burger_name">
+			  </div>
+			  
+			  <button class="btn-primary" type="submit">Submit Order</button>
+			</form>
+
+	    </div>
+	
+  	</div>
+	<!-- end .row -->
+
+</div>
