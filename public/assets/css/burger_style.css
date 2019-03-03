@@ -1,15 +1,15 @@
+html {
+    background-color: #90DDF0;
+    font-family: 'Fjalla One', sans-serif;
+    color: 
+}
 .jumbotron {
     /* background-image: url("./image/background.jpg"); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     margin-top: 10px;
-    background-color: rgba(0, 208, 255, 0.81);
-}
-
-.jumbotron > h1 {
-    font-family: 'Fjalla One', sans-serif;
-    color: white;
+    background-color: #E0FBFC;
 }
 
 #newburger {
