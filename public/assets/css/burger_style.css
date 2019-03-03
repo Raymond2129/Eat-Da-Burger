@@ -1,7 +1,7 @@
 html {
     background-color: #90DDF0 !important;
     font-family: 'Fjalla One', sans-serif;
-    color: 
+    color: black;
 }
 .jumbotron {
     /* background-image: url("./image/background.jpg"); */
@@ -9,7 +9,7 @@ html {
     background-position: center;
     background-size: cover;
     margin-top: 10px;
-    background-color: #E0FBFC !important;
+    background-color: #E0FBFC;
 }
 
 #newburger {
